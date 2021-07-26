@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Background modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.5); /* Black with 50% opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type=submit]
+{
+background-color: #f44336;
+border-radius: 8px;
+border: none;
+color: white;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+} 
+
+input[type=reset]
+{
+background-color: grey;
+border-radius: 8px;
+border: none;
+color: white;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+} 
+
+button
+{
+background-color: DarkOrange;
+border-radius: 8px;
+border: none;
+color: white;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+} 
+
+.btn1 /* plus */ 
+{
+
+  }
+  
+.btn2 /* add rule */
+{
+
+}
+
+</style>
+</head>
+<body>
+
+<h2>Involve Asia</h2>
+
+<button id="myBtn" name="myBtn" >Add Revenue Group</button>
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form>
+
+  Revenue Group Title <br>
+
+<label for="fashion"></label>
+<input type="text" id="fashion" size="100" name="fashion" value="Fashion - 15%" ><br><br>
+If  <select name= "dropdown" id="dropdown">
+  <option value="ALL">ALL </option>
+  <option value="OTHER">OTHER </option>
+  </select> 
+of the below condition are met 
+<br>
+<br>
+<div id="product1">
+<div class="product1-item float-clear" style="clear:both;">
+<select name= "dropdown1" id="dropdown1">
+  <option value="aff_sub">aff_sub </option>
+  <option value="aff_sub2">aff_sub2 </option>
+  </select> 
+
+<select name= "dropdown2" id="dropdown2">
+  <option value="is">is </option>
+  <option value="are">are </option>
+  </select>
+
+ 
+ <div id="product">
+<div class="product-item float-clear" style="clear:both;">
+<input type="text" size="60" name="item_name[]" placeholder="insert parameter">
+<div class="btn-action float-clear btn2">
+<input type="button" name="add_item" value="add rule" onClick="addMore();" />
+</div>
+<div class="btn-action float-clear btn3">
+<input type="button" name="plus_item" value="-" disabled />
+<div class="btn-action float-clear btn1">
+<input type="button" name="plus_item" value="+" onClick="plus();" />
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+then revenue is <label for="parameter2"></label>
+<input type="number" id="parameter2" size="10" name="parameter2" placeholder=""> % 
+<br>
+<br>
+<input type="submit" value="Confirm">
+<input type="reset" value="Cancel">
+</form>
+
+
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+
+  
+}
+
+function addMore() {
+  $(".product-item:last").clone().insertAfter(".product-item:last");  
+}
+function plus() {
+  $(".product1-item:last").clone().insertAfter(".product1-item:last");  
+}
+</script>
+</body>
+</html>
+
